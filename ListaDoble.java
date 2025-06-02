@@ -27,7 +27,7 @@ public class ListaDoble {
     public void mostrar() {
         Nodo actual = cabeza;
         while (actual != null) {
-            System.out.println(actual.dato);
+            System.out.print(actual.dato + " -> ");
             actual = actual.siguiente;
         }
         System.out.println("");

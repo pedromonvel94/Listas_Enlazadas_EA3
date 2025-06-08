@@ -1,4 +1,9 @@
+import java.util.ArrayList;
+
 public class ListaSimple {
+    ArrayList<Integer> listaSimpleAL = new ArrayList<>();
+    ArrayList<Integer> numerosPrimosSimple = new ArrayList<>();
+
     Nodo cabeza; // Creo una referencia a la cabeza de la lista
 
     public class Nodo { // Creo el nodo el cual tiene 2 atributos int dato y Nodo siguiente el cual es
@@ -24,6 +29,47 @@ public class ListaSimple {
         // null, ahora si agrego un segundo nodo ya cabeza no vale null sino que vale el
         // valor del nodo que cree en el paso anterior y digo que el nuevo nodo apunte a
         // mi nodo anteriormente creado
+
+        listaSimpleAL.add(dato);
+
+        if (esPrimo(dato)) {
+            numerosPrimosSimple.add(dato);
+        }
+    }
+
+    public void ordenarArrayList() {
+        // Repetimos el proceso tantas veces como elementos haya en la lista menos 1
+        for (int i = 0; i < listaSimpleAL.size() - 1; i++) {
+
+            // En cada pasada comparamos pares de elementos
+            for (int j = 0; j < listaSimpleAL.size() - 1 - i; j++) {
+
+                // Si el de la izquierda es mayor que el de la derecha, los intercambiamos
+                if (listaSimpleAL.get(j) > listaSimpleAL.get(j + 1)) {
+                    int temporal = listaSimpleAL.get(j);
+                    listaSimpleAL.set(j, listaSimpleAL.get(j + 1));
+                    listaSimpleAL.set(j + 1, temporal); // ponemos el mayor a la derecha
+                }
+            }
+        }
+        System.out.println("ArrayList Simple Ordenado: " + listaSimpleAL);
+    }
+
+    public static boolean esPrimo(int dato) { // Lo puse boolean para que la respuesta sea un true o un false
+        if (dato <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i * i <= dato; i++) {
+            if (dato % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void listaPrimosSimples() {
+        System.out.println("Numeros Primos que colocaste en la lista Simple: " + numerosPrimosSimple);
     }
 
     public void mostrarLista() {

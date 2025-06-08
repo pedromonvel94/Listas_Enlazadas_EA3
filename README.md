@@ -18,20 +18,20 @@ Descripción del Problema:
 
     c. Generar una Lista Doblemente Enlazada
 
-        - Utiliza los elementos de las listas creadas en los numerales a y b.
+        - Utiliza los elementos de las listas creadas en los numerales a y b. ✅
 
-        - Implementa un TDA para una lista doblemente enlazada y agrega los elementos obtenidos.
+        - Implementa un TDA para una lista doblemente enlazada y agrega los elementos obtenidos. ✅
 
 2.  Manipulación de Listas
 
     d. Ordenar y Eliminar Repetidos
 
-        - Ordena ascendentemente los elementos de la lista doblemente enlazada creada en el numeral c.
+        - Ordena ascendentemente los elementos de la lista doblemente enlazada creada en el numeral c. ✅
 
-        - Elimina los elementos duplicados de la lista.
+        - Elimina los elementos duplicados de la lista. ✅
 
     e. Filtrar Números Primos
 
-        - Genera una nueva lista (puede ser sencilla, doble o circular) con los elementos de la lista doblemente enlazada que sean primos.
+        - Genera una nueva lista (puede ser sencilla, doble o circular) con los elementos de la lista doblemente enlazada que sean primos. ❌
 
-        - Solicita al usuario un número y filtra los elementos primos menores o iguales a ese número.
+        - Solicita al usuario un número y filtra los elementos primos menores o iguales a ese número. ❌

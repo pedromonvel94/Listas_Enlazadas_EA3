@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Montoya_Juan_Pedro_EA3 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+
         ListaSimple listaSimple = new ListaSimple();
         ListaCircular listaCircular = new ListaCircular();
         ListaDoble listaDoble = new ListaDoble();
@@ -10,17 +11,29 @@ public class Montoya_Juan_Pedro_EA3 {
         System.out.println("Que tipo de lista deseas manejar (Simple/Circular/Ambas)");
         String tipoLista = scan.nextLine();
 
-        boolean respuestaCorrecta = true;
+        boolean tipoListaValida = true;
 
-        while (respuestaCorrecta) {
+        while (tipoListaValida) {
             if (tipoLista.equalsIgnoreCase("simple")) {
+
                 usarSimple(scan, listaSimple, listaDoble);
+
                 listaSimple.mostrarLista();
-                respuestaCorrecta = false;
+                listaSimple.ordenarArrayList();
+                listaSimple.listaPrimosSimples();
+
+                tipoListaValida = false;
+
             } else if (tipoLista.equalsIgnoreCase("circular")) {
+
                 usarCircular(scan, listaCircular, listaDoble);
+
                 listaCircular.mostrarLista();
-                respuestaCorrecta = false;
+                listaCircular.ordenarArrayList();
+                listaCircular.listaPrimosCircular();
+
+                tipoListaValida = false;
+
             } else if (tipoLista.equalsIgnoreCase("ambas")) {
 
                 System.out.println("Crea tu lista simple");
@@ -31,18 +44,45 @@ public class Montoya_Juan_Pedro_EA3 {
                 usarCircular(scan, listaCircular, listaDoble);
                 listaCircular.mostrarLista();
 
-                respuestaCorrecta = false;
+                listaSimple.ordenarArrayList();
+                listaCircular.ordenarArrayList();
+
+                listaSimple.listaPrimosSimples();
+                listaCircular.listaPrimosCircular();
+
+                tipoListaValida = false;
             } else {
                 System.out.println("Tipo de lista no válido.");
             }
         }
 
-        System.out.println("Deseas imprimir la lista doble que es la union de la simple y la circular? (Y/N)");
-        String respuestaUsuario = scan.nextLine();
+        boolean respuestaCorrecta = true;
 
-        if (respuestaUsuario.equalsIgnoreCase("y")) {
-            listaDoble.mostrar();
+        while (respuestaCorrecta) {
+            System.out.println("Deseas imprimir la lista doble que es la union de la simple y la circular? (Y/N)");
+            String respuestaUsuario = scan.nextLine();
+
+            if (respuestaUsuario.equalsIgnoreCase("y")) {
+
+                listaDoble.mostrar();
+                listaDoble.ordenarArrayList();
+                listaDoble.listaEnlazadaPrimosDoble();
+                listaDoble.mostrarPrimosDoble();
+
+                respuestaCorrecta = false;
+            } else if (respuestaUsuario.equalsIgnoreCase("n")) {
+
+                listaDoble.listaEnlazadaPrimosDoble();
+                listaDoble.mostrarPrimosDoble();
+
+                respuestaCorrecta = false;
+            } else {
+                System.out.println("Coloca una respuesta valida.");
+            }
         }
+
+        System.out.println("Ahora hagamos magia, elige un numero ");
+        listaDoble.filtrarPrimosMenores(scan);
 
         scan.close();
     }
